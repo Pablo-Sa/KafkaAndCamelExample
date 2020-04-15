@@ -16,18 +16,15 @@ o Camel neste: https://camel.apache.org/download/
 
 Troca de mensagem entre dois tópicos do Kafka roteados pele apache Camel, implementação utilizado Java 8.
 
-* Após baixar o Kafka use este comando para criar o tópico:
-$ kafka-topics --zookeeper 127.0.0.1:2181 --create --topic `Nome_do_seu_topico` --partition 3 --replication-factor 1
-
-
 #### Sobre o Camel: 
 
-* Na imagem abaixo é possível ver a implementação java do apache Camel, no trecho `from("kafka:test2?brokers=localhost:9092")`, é definida a entrada de dados com a propriedade `from` do camel.
+* Na imagem abaixo é possível ver a implementação java do apache Camel, no trecho `from("kafka:TopicoPrimeiro?brokers=localhost:9092")`, é definida a entrada de dados com a propriedade `from` do Camel, tal Trecho caso não exista criará um Tópico no Kafka.
 
 * em seguida vem o seguinte trecho de código `.process(new SetExchangeConfiguration())`, a propriedade `process` define o método usado para processar a chegada de dados recebida na propriedade `from`, neste exemplo o método se chama `SetExchangeConfiguration()`.
 
 * Depois de processar as informações é feito um retorno utilizado a propriedade `to` do Camel a trecho responsável por isso é seguinte: 
-`.to("kafka:test?brokers=localhost:9092")`.
+`.to("kafka:TopicoSegundo?brokers=localhost:9092")`.
+* Tal Fará o Envio da Mensagem Processada para Outro Tópico do Kafka.
 
 ![alt text](imgs/exemple.png)  
 
