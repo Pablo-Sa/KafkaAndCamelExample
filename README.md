@@ -14,7 +14,7 @@ o Camel neste: https://camel.apache.org/download/
 
 ### Em que consiste este teste ? 
 
-Troca de mensagem entre dois tópicos do Kafka roteados pele apache Camel, implementação utilizado Java 8.
+Troca de mensagem entre dois tópicos do Kafka roteados pelo apache Camel, implementação utilizado Java 8.
 
 #### Sobre o Camel: 
 
